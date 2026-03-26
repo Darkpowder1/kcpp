@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/Users/darkpowder/github/kcpp",
+  "command": "/usr/bin/c++  -I/Users/darkpowder/github/kcpp/include  -arch arm64 -o CMakeFiles/Main.dir/src/Main.cxx.o -c /Users/darkpowder/github/kcpp/src/Main.cxx",
+  "file": "/Users/darkpowder/github/kcpp/src/Main.cxx",
+  "output": "CMakeFiles/Main.dir/src/Main.cxx.o"
+},
+{
+  "directory": "/Users/darkpowder/github/kcpp",
+  "command": "/usr/bin/c++  -I/Users/darkpowder/github/kcpp/include  -arch arm64 -o CMakeFiles/Main.dir/src/Test.cxx.o -c /Users/darkpowder/github/kcpp/src/Test.cxx",
+  "file": "/Users/darkpowder/github/kcpp/src/Test.cxx",
+  "output": "CMakeFiles/Main.dir/src/Test.cxx.o"
+}
+]
