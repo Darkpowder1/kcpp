@@ -1,6 +1,7 @@
 #include "ZadMetodyAbstrakcyjne.h"
 #include <cmath>
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 class Figura {
@@ -31,7 +32,12 @@ class Kwadrat : public Figura {
 void ZadMetodyAbstrakcyjne::test_kwadrat(){
     double bok = 5.55;
     Kwadrat k(bok);
-    cout << "Kwadrat ma bok: "<< bok << " obwod: " << k.obwod() << " i pole: " << k.pole_powierzchni() << endl << endl; 
+
+    cout << "--- Kwadrat ---" << endl;
+    cout << left << setw(10) << "bok:" << bok << endl;
+    cout << left << setw(10) << "obwod:" << k.obwod() << endl;
+    cout << left << setw(10) << "pole:" << k.pole_powierzchni() << endl;
+    cout << endl;
 }
 
 // --- trojkat ---
@@ -59,8 +65,12 @@ void ZadMetodyAbstrakcyjne::test_trojkat(){
     double bb = 3;
     double bc = 4.76;
     Trojkat t(ba, bb, bc);
-    
-    cout << "Trojkat ma boki: "<< ba << ", " << bb << ", " << bc << ". obwod: " << t.obwod() << " i pole: " << t.pole_powierzchni() << endl << endl; 
+
+    cout << "--- Trojkat ---" << endl;
+    cout << left << setw(10) << "boki:" << ba << ", " << bb << ", " << bc << endl;
+    cout << left << setw(10) << "obwod:" << t.obwod() << endl;
+    cout << left << setw(10) << "pole:" << t.pole_powierzchni() << endl;
+    cout << endl;
 }
 
 // --- prostokat ---
@@ -84,7 +94,12 @@ void ZadMetodyAbstrakcyjne::test_prostokat(){
     double boka = 5.55;
     double bokb = 3;
     Prostokat p(boka, bokb);
-    cout << "Prostokat ma boki: "<< boka << ", " << bokb << " obwod: " << p.obwod() << " i pole: " << p.pole_powierzchni() << endl << endl; 
+
+    cout << "--- Prostokat ---" << endl;
+    cout << left << setw(10) << "boki:" << boka << ", " << bokb << endl;
+    cout << left << setw(10) << "obwod:" << p.obwod() << endl;
+    cout << left << setw(10) << "pole:" << p.pole_powierzchni() << endl;
+    cout << endl;
 }
 
 
@@ -115,15 +130,31 @@ class Kolo : public Figura {
 void ZadMetodyAbstrakcyjne::test_kola(){
     double promien = 100;
     Kolo k(promien);
-    cout << "Kolo ma promien: "<< promien << " obwod: " << k.obwod() << " i pole: " << k.pole_powierzchni() << endl; 
 
-    double metry_na_obywatela = 5;
-    cout << "Dla kazdego obywtela jest: " << metry_na_obywatela << " metrow. To daje dystans: " << k.dystans(metry_na_obywatela) << " metrow" << endl;
-    
+    cout << "--- Kolo ---" << endl;
+    cout << left << setw(10) << "promien:" << promien << endl;
+    cout << left << setw(10) << "obwod:" << k.obwod() << endl;
+    cout << left << setw(10) << "pole:" << k.pole_powierzchni() << endl;
+    cout << endl;
+
+    cout << "Dystans do nastepnej osoby w zaleznosci od metrow na obywatela:" << endl;
+    cout << left << setw(20) << "metry/obywatel" << right << setw(10) << "dystans" << endl;
+    cout << setfill('-') << setw(30) << "" << setfill(' ') << endl;
+
+    double metry[3] = {5, 10, 20};
+    for (int i = 0; i < 3; i++) {
+        cout << left << setw(20) << metry[i] << right << setw(10) << k.dystans(metry[i]) << endl;
+    }
+    cout << endl;
 }
 
 
 void ZadMetodyAbstrakcyjne::run() {
+    cout << fixed << setprecision(2);
+
+    cout << "===== Figury geometryczne (obwod i pole) =====" << endl;
+    cout << endl;
+
     test_kwadrat();
 
     test_trojkat();

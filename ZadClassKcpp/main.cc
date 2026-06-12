@@ -31,7 +31,10 @@ void wyswietl_menu(){
 
 void dopasuj_akcje(int akcja){
 
-    
+    cout << endl;
+    cout << ">>>>>>>>>> POCZATEK ZADANIA <<<<<<<<<<" << endl;
+    cout << endl;
+
     switch (akcja) {
         case 1: {
             ZadStringExample zad;
@@ -85,6 +88,10 @@ void dopasuj_akcje(int akcja){
         }
             
     }
+
+    cout << endl;
+    cout << ">>>>>>>>>> KONIEC ZADANIA <<<<<<<<<<" << endl;
+    cout << endl;
 }
 
 int main() {
