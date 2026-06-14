@@ -1,9 +1,9 @@
 # kompilowanie kcppZadania:
-> cd kcpp/kcppZadania && mkdir ZadStudent.build
+> cd kcpp/kcppZadania && mkdir kcppZadania.build
 
-> cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -B ZadStudent.build -S .
+> cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -B kcppZadania.build -S .
 
-> cmake --build ZadStudent.build
+> cmake --build kcppZadania.build
 
 ### ZadStudent jest w katalogu w src/
 

@@ -1,3 +1,4 @@
+#include <string>
 using namespace std;
 #include<iostream>;
 
@@ -40,22 +41,81 @@ void printSomeData(string data) {
 }
 
 
+// args = ilosc argumentow
+// argv = lista argumentow
+int main(int argc, char* argv[]) {
 
-int main() {
+    cout << "Ten program przyjmuje funkcje! Przyklad uzycia: [program] [nazwa_funkcji] [arg1] [arg2] [funkcja] [arg]" << endl << endl;
 
-    int liczba1 = 9;
-    int liczba2 = 132;
-
-    string someString = "this is a very long string, definitely above threshold";
+    // to program robil oryginalnie
+    if (argc == 1) { // jesli nic sie nie poda, to jest 1
+        int liczba1 = 9;
+        int liczba2 = 132;
     
-    int liczba3 = addNumbers(liczba1, liczba2);
+        string someString = "this is a very long string, definitely above threshold";
+        
+        int liczba3 = addNumbers(liczba1, liczba2);
+    
+        if (!isNumberEven(liczba3)) {
+            someString = "short";
+        } 
+    
+        if (!stringLengthAboveThreshold(someString, liczba1)) {
+            printSomeData(someString);
+        }
+    } else {
 
-    if (!isNumberEven(liczba3)) {
-        someString = "short";
-    } 
+        for (int i = 1; i < argc; ++i) {
+            string funkcja = argv[i];
 
-    if (!stringLengthAboveThreshold(someString, liczba1)) {
-        printSomeData(someString);
+            
+            if (funkcja == "isNumberEven") { // dziala
+                i++;
+                float number = stoi(argv[i]); // konwersja z tekstu na int, troche niebezpieczne
+                bool even = isNumberEven(number);
+
+                cout << "Podany numer " << number << " ";
+                if (even) {
+                    cout << "jest parzysty!" << endl;
+                } else {
+                    cout << "nie jest parzysty!" << endl;
+                }
+
+                
+            } else if (funkcja == "stringLengthAboveThreshold") { // dziala
+                i++;
+                string tekst = argv[i];
+
+                i++;
+                int threshold = stoi(argv[i]); 
+
+                bool above_threshold = stringLengthAboveThreshold(tekst, threshold);
+
+                cout << "Podany tekst " << tekst << " ";
+                if (above_threshold) {
+                    cout << "jest dluzszy niz podany limit! (" << threshold << ")" << endl;
+                } else {
+                    cout << "nie jest dluzszy niz podany limit! (" << threshold << ")" << endl;
+                }
+            
+            } else if (funkcja == "addNumbers") { // dziala
+                i++;
+                float num1 = stoi(argv[i]);               
+                i++;
+                float num2 = stoi(argv[i]);
+
+                cout << "suma liczby " << num1 << " oraz liczby " << num2 << " daje: " << addNumbers(num1, num2) << endl;
+            
+            } else if (funkcja == "printSomeData") {
+                i++;
+                string data = argv[i];
+
+                printSomeData(data);
+            }
+            
+        }
+        
     }
+
     
 }
